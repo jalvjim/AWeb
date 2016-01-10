@@ -1,7 +1,7 @@
 <?php
 
-if (empty($_SESSION)) {
-	header("http://localhost/web/interfaz/login.php");
+if (!isset($_SESSION)) {
+	header('Location: http://localhost/web/interfaz/login.php');
 }
 
 include '../php/Principal.class.php';
@@ -13,7 +13,7 @@ session_start();?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Escritorio | Gran Manzana</title>
+    <title>Página principal</title>
 
     <?php require_once 'head.php';?>
 

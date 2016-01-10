@@ -4,19 +4,19 @@
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-          
+
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
               <img src="http://pruebas.granmanzana.es/areapersonal/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p><?php echo $_SESSION['usuario_nombre'] ?></p>
+              <p><?php echo $_SESSION['nombre'] ?></p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
-          
-          <!-- search form 
+
+          <!-- search form
           <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -30,11 +30,11 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">Navegación principal</li>
-            
+
             <!-- ESCRITORIO -->
             <li>
               <a href="http://pruebas.granmanzana.es/areapersonal/index.php">
-                <i class="fa fa-dashboard"></i> <span>Escritorio</span>  
+                <i class="fa fa-dashboard"></i> <span>Escritorio</span>
               </a>
             </li>
 
@@ -42,10 +42,10 @@
             <li>
               <a href="http://pruebas.granmanzana.es/areapersonal/pages/anuncios/anuncios.php">
                 <i class="fa fa-laptop"></i> <span>Anuncios</span>
-				
+
                 <small class="label label-primary pull-right">
 				<?
-				/*	
+				/*
 					BD::conectar();
 					$num_mensajes=Area_personal::contarMensajes($_SESSION['usuario_id']);
 					if (empty($num_mensajes))
@@ -56,7 +56,7 @@
 				?>
 				</small>
               </a>
-            </li>  
+            </li>
 
             <!-- MENSAJES -->
             <li>
@@ -64,7 +64,7 @@
                 <i class="fa fa-envelope"></i> <span>Mensajes</span>
                 <small class="label pull-right bg-green">
 								<?
-					
+
 					BD::conectar();
 					$num_anuncios=Area_personal::contarAnuncios($_SESSION['usuario_id']);
 					if (empty($num_anuncios))
@@ -75,7 +75,7 @@
 				?>
 				</small>
               </a>
-            </li>  
+            </li>
 
             <!-- FAVORITOS -->
             <li>
@@ -90,15 +90,15 @@
               <a href="http://pruebas.granmanzana.es/areapersonal/pages/notificaciones/notificaciones.php">
                 <i class="fa fa-bell-o"></i> <span>Notificaciones</span>
                 <small class="label pull-right bg-yellow">10</small>
-              </a>  
+              </a>
             </li>
-            
+
             <!-- DATOS -->
             <li>
               <a href="http://pruebas.granmanzana.es/areapersonal/pages/datos/datos.php">
                 <i class="fa fa-user"></i> <span>Perfil</span>
               </a>
-            </li>   
+            </li>
 
             <!-- AYUDA -->
             <li>
@@ -106,7 +106,7 @@
                 <i class="fa fa-question"></i> <span>Ayuda</span>
               </a>
             </li>
-            
+
             <!-- CERRAR SESSION -->
             <li>
               <a href="http://pruebas.granmanzana.es/php/cerrar_sesion.php">
@@ -126,12 +126,11 @@
                   <i class="fa fa-fw fa-users"></i><span>Usuarios</span>
                 </a>
              </li>
-             
+
           </ul>
 
-        
+
         </section>
         <!-- /.sidebar -->
       </aside>
-	  
-	
+
