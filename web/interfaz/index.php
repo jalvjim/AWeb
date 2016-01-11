@@ -1,20 +1,12 @@
 <?php
 
-/*if (!$_SESSION["usuario_id"]) {
-header('Location: http://localhost/web/interfaz/login.php');
-}*/
-
-include '../php/Principal.class.php';
-
-include '../php/BD.class.php';
-
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Página principal</title>
+    <title>ensorAdmin</title>
 
     <?php require_once 'head.php';?>
 
@@ -22,10 +14,9 @@ include '../php/BD.class.php';
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
-      <?php require_once 'header.php';?>
+      <?php// require_once 'header.php';?>
 
       <?php require_once 'left-column.php';?>
-
       <?php require_once 'content.php';?>
 
       <?php require_once 'footer.php';?>

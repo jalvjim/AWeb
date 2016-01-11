@@ -76,16 +76,15 @@ class Usuarios {
 
 			if ($error == 0) {
 				//acceso ok
-				$_SESSION["usuario_id"] = isset($usuario['id']) ? $usuario["id"] : 0;
-				$_SESSION["usuario_nick"] = isset($usuario['usuario']) ? $usuario["usuario"] : '';
-				$_SESSION["usuario_nombre"] = isset($usuario['nombre']) ? $usuario["nombre"] : '';
+				$_SESSION['usuario_id'] = isset($usuario['id']) ? $usuario['id'] : 0;
+				$_SESSION['usuario_nick'] = isset($usuario['usuario']) ? $usuario['usuario'] : '';
+				$_SESSION['usuario_nombre'] = isset($usuario['nombre']) ? $usuario['nombre'] : '';
 				$expire = time() + (60 * 60 * 24);
-				$_SESSION["expire"] = $expire;
+				$_SESSION['expire'] = $expire;
 
 			}
 
 		}
-		self::redireccionIndex($error);
 
 		return $error;
 	}
@@ -134,14 +133,6 @@ class Usuarios {
 			return !empty($row[0]) ? $row[0] : 0;
 		} else {
 			return 0;
-		}
-
-	}
-
-	private static function redireccionIndex($exito) {
-		BD::desconectar();
-		if ($exito == 0) {
-			header('Location: http://localhost/web/interfaz/index.php ');
 		}
 
 	}

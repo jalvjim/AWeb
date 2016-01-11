@@ -1,7 +1,5 @@
 <?php
 
-header('Location: http://localhost/web/interfaz/index.php');
-
 class Peticiones {
 	private static $tblInterfaces = 'Interfaces';
 	private static $tblMedidas = 'Medidas';
@@ -29,9 +27,6 @@ class Peticiones {
 		}
 	}
 
-	public static function (){
-
-	}
 }
 
 ?>

@@ -1,5 +1,8 @@
 
-<?session_start();?>
+
+<?
+include('../php/Principal.class.php');
+?>
  <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -8,11 +11,12 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="http://localhost/web/interfaz/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <a href="http://localhost/web/interfaz/index.php">
+                <img src="http://localhost/web/images/arduino.png" class="img-circle" alt="User Image">
+              </a>
             </div>
             <div class="pull-left info">
-              <p><?php echo $_SESSION['usuario_nombre'] ?></p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <p>sensorAdmin</p>
             </div>
           </div>
 
@@ -31,105 +35,52 @@
           <ul class="sidebar-menu">
             <li class="header">Navegación principal</li>
 
-            <!-- ESCRITORIO -->
+            <!-- Inicio -->
             <li>
               <a href="http://localhost/web/interfaz/index.php">
-                <i class="fa fa-dashboard"></i> <span>Escritorio</span>
+                <i class="fa fa-dashboard"></i> <span>Inicio</span>
               </a>
             </li>
 
-            <!-- ANUNCIOS -->
+            <!-- Dispositivos -->
             <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/anuncios/anuncios.php">
-                <i class="fa fa-laptop"></i> <span>Anuncios</span>
+              <a href="http://localhost/web/interfaz/pages/dispositivos/dispositivos.php">
+                <i class="fa fa-laptop"></i> <span>Dispositivos</span>
 
                 <small class="label label-primary pull-right">
 				<?
-				/*
-					BD::conectar();
-					$num_mensajes=Area_personal::contarMensajes($_SESSION['usuario_id']);
-					if (empty($num_mensajes))
-						echo 0;
-					else
-						echo $num_mensajes['total_count'];
-					BD::desconectar();*/
-				?>
-				</small>
-              </a>
-            </li>
-
-            <!-- MENSAJES -->
-            <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/mailbox/mailbox.php">
-                <i class="fa fa-envelope"></i> <span>Mensajes</span>
-                <small class="label pull-right bg-green">
-								<?
 
 					BD::conectar();
-					$num_anuncios=Area_personal::contarAnuncios($_SESSION['usuario_id']);
-					if (empty($num_anuncios))
+					$num_dispositivos=Principal::contarDispositivos();
+					if (empty($num_dispositivos))
 						echo 0;
 					else
-						echo $num_anuncios['total_count'];
+						echo $num_dispositivos['total_count'];
 					BD::desconectar();
 				?>
 				</small>
               </a>
             </li>
 
-            <!-- FAVORITOS -->
+            <!-- Medidas -->
             <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/favoritos/favoritos.php">
-                <i class="fa fa-star-o"></i> <span>Favoritos</span>
-                <small class="label pull-right bg-yellow">3</small>
+              <a href="http://localhost/web/interfaz/pages/medidas/medidas.php">
+                <i class="fa fa-envelope"></i> <span>Medidas</span>
+                <small class="label pull-right bg-green">
+					       <?
+
+          BD::conectar();
+          $num_medidas_nuevas=Principal::contarNuevasMedidas();
+          if (empty($num_medidas_nuevas))
+            echo 0;
+          else
+            echo $num_medidas_nuevas['total_count'];
+          BD::desconectar();
+        ?>
+				</small>
               </a>
             </li>
-
-            <!-- NOTIFICACIONES -->
-            <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/notificaciones/notificaciones.php">
-                <i class="fa fa-bell-o"></i> <span>Notificaciones</span>
-                <small class="label pull-right bg-yellow">10</small>
-              </a>
-            </li>
-
-            <!-- DATOS -->
-            <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/datos/datos.php">
-                <i class="fa fa-user"></i> <span>Perfil</span>
-              </a>
-            </li>
-
-            <!-- AYUDA -->
-            <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/pages/ayuda/ayuda.php">
-                <i class="fa fa-question"></i> <span>Ayuda</span>
-              </a>
-            </li>
-
-            <!-- CERRAR SESSION -->
-            <li>
-              <a href="http://localhost/web/php/cerrar_sesion.php">
-                <i class="fa fa-unlock"></i> <span>Cerrar Session</span>
-              </a>
-            </li>
-             <li><hr></li>
-
-             <li class="header">ADMINISTRADORES</li>
-             <li>
-                <a href="#">
-                  <i class="fa fa-bar-chart"></i><span>Estadisticas</span>
-                </a>
-             </li>
-             <li>
-                <a href="#">
-                  <i class="fa fa-fw fa-users"></i><span>Usuarios</span>
-                </a>
-             </li>
-
           </ul>
-
-
         </section>
         <!-- /.sidebar -->
       </aside>

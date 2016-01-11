@@ -77,7 +77,7 @@ class Principal {
 
 	}
 
-	public static function obtenerInterfaces($idDispositivo) {
+	public static function obtenerInterfacesPorDispositivo($idDispositivo) {
 		$result = BD::consultar("SELECT * FROM " . self::$tblInterfaces . " WHERE id_dispositivo='" . $idDispositivo . "'");
 		if ($result) {
 			$data = array();
@@ -93,7 +93,22 @@ class Principal {
 
 	}
 
-	public static function obtenerMedidas($idDispositivo) {
+	public static function obtenerInterfaces() {
+		$result = BD::consultar("SELECT * FROM " . self::$tblInterfaces);
+		if ($result) {
+			$data = array();
+			while ($row = mysqli_fetch_assoc($result)) {
+				$data[] = $row;
+			}
+
+			mysqli_free_result($result);
+			return empty($data) ? 0 : $data;
+		} else {
+			return 0;
+		}
+	}
+
+	public static function obtenerMedidasPorDispositivo($idDispositivo) {
 		$result = BD::consultar("SELECT id FROM " . self::$tblMedidas . " WHERE id_dispositivo='" . $idDispositivo . "'");
 		if ($result) {
 			$data = array();
@@ -110,7 +125,7 @@ class Principal {
 	}
 
 	public static function obtenerTodasLasMedidas() {
-		$result = BD::consultar("SELECT id FROM " . self::$tblMedidas);
+		$result = BD::consultar("SELECT * FROM " . self::$tblMedidas);
 		if ($result) {
 			$data = array();
 			while ($row = mysqli_fetch_assoc($result)) {
@@ -125,23 +140,7 @@ class Principal {
 
 	}
 	public static function obtenerUltimasMedidas() {
-		$result = BD::consultar("SELECT id FROM " . self::$tblMedidas . " ORDER BY fecha LIMIT 50");
-		if ($result) {
-			$data = array();
-			while ($row = mysqli_fetch_assoc($result)) {
-				$data[] = $row;
-			}
-
-			mysqli_free_result($result);
-			return empty($data) ? 0 : $data;
-		} else {
-			return 0;
-		}
-
-	}
-
-	public static function obtenerIdLocalidad($nombre, $id_provincia) {
-		$result = BD::consultar("SELECT id FROM " . self::$tblLocalidades . " WHERE nombre='" . $nombre . "' AND id_provincia='" . $id_provincia . "'");
+		$result = BD::consultar("SELECT * FROM " . self::$tblMedidas . " ORDER BY fecha LIMIT 50");
 		if ($result) {
 			$data = array();
 			while ($row = mysqli_fetch_assoc($result)) {
@@ -176,7 +175,7 @@ class Principal {
 
 	public static function contarNuevasMedidas() {
 
-		$result = BD::consultar("SELECT COUNT(*) FROM " . $tblMedidas . " WHERE nuevo='1'");
+		$result = BD::consultar("SELECT COUNT(*) FROM " . $tblMedidas . " WHERE visto='0'");
 
 		if ($result) {
 			$data = array();
@@ -194,7 +193,7 @@ class Principal {
 
 	public static function ponerMedidasA0() {
 
-		$result = BD::consultar("UPDATE " . $tblMedidas . "SET nuevo='0'  WHERE nuevo='1'");
+		$result = BD::consultar("UPDATE " . $tblMedidas . "SET visto='1'  WHERE visto='0'");
 
 		if ($result) {
 			$data = array();

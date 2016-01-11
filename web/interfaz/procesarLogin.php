@@ -8,7 +8,12 @@ if ($_POST['submit'] == "Login") {
 
 	$param['usuario'] = $_POST['usuario'];
 	$param['password'] = $_POST['pass'];
-	$exito = Usuarios::login_usuarios($param);
+	$error = Usuarios::login_usuarios($param);
+	BD::desconectar();
+	if (!$error) {
+		header('Location: http://localhost/web/interfaz/index.php ');
+		headers_sent();
+	}
 
 }
 

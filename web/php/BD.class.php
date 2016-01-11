@@ -39,7 +39,7 @@ class BD {
 
 		if ($tables == '*') {
 			$tables = array();
-			$result = self::consultar('SHOW TABLES FROM pruebasgm2');
+			$result = self::consultar('SHOW TABLES FROM Proyecto');
 			while ($row = mysqli_fetch_row($result)) {
 				$tables[] = $row[0];
 			}
