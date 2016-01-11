@@ -19,16 +19,16 @@
         <!-- Nombre Usuario  -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="http://pruebas.granmanzana.es/areapersonal/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-            <span class="hidden-xs">Marcos Aguilar</span>
+            <img src="http://localhost/web/interfaz/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+            <span class="hidden-xs"><?Principal::obtener_nombre($_SESSION['usuario_id'])?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="http://pruebas.granmanzana.es/areapersonal/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="http://localhost/web/interfaz/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
               <p>
-                Marcos Aguilar - Desarrollador web
-                <small>Miembro desde Jul. 2015</small>
+                Jaime - Desarrollador web
+                <small>Miembro desde Dic. 2015</small>
               </p>
             </li>
             <!-- Menu Body -->
@@ -46,10 +46,10 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="http://pruebas.granmanzana.es/areapersonal/pages/datos/datos.php" class="btn btn-default btn-flat">Perfil</a>
+                <a href="http://localhost/web/interfaz/pages/datos/datos.php" class="btn btn-default btn-flat">Perfil</a>
               </div>
               <div class="pull-right">
-                <a href="http://pruebas.granmanzana.es/php/cerrar_sesion.php" class="btn btn-default btn-flat">Desconectar</a>
+                <a href="http://localhost/web/php/cerrar_sesion.php" class="btn btn-default btn-flat">Desconectar</a>
               </div>
             </li>
           </ul>

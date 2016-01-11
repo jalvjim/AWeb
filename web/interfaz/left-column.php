@@ -8,10 +8,10 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="http://pruebas.granmanzana.es/areapersonal/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="http://localhost/web/interfaz/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p><?php echo $_SESSION['nombre'] ?></p>
+              <p><?php echo $_SESSION['usuario_nombre'] ?></p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -33,7 +33,7 @@
 
             <!-- ESCRITORIO -->
             <li>
-              <a href="http://pruebas.granmanzana.es/areapersonal/index.php">
+              <a href="http://localhost/web/interfaz/index.php">
                 <i class="fa fa-dashboard"></i> <span>Escritorio</span>
               </a>
             </li>
@@ -109,7 +109,7 @@
 
             <!-- CERRAR SESSION -->
             <li>
-              <a href="http://pruebas.granmanzana.es/php/cerrar_sesion.php">
+              <a href="http://localhost/web/php/cerrar_sesion.php">
                 <i class="fa fa-unlock"></i> <span>Cerrar Session</span>
               </a>
             </li>

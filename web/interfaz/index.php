@@ -1,13 +1,14 @@
 <?php
 
-if (!isset($_SESSION)) {
-	header('Location: http://localhost/web/interfaz/login.php');
-}
+/*if (!$_SESSION["usuario_id"]) {
+header('Location: http://localhost/web/interfaz/login.php');
+}*/
 
 include '../php/Principal.class.php';
 
 include '../php/BD.class.php';
-session_start();?>
+
+?>
 <!DOCTYPE html>
 <html>
   <head>

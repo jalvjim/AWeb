@@ -26,12 +26,12 @@ class Usuarios {
 	}
 
 	public static function encontrar_usuario($param) {
-		$param["usuario"] = strtolower(trim($param["usuario"]));
-		$param["password"] = trim(strtolower($param["password"]));
+		$param['usuario'] = strtolower(trim($param['usuario']));
+		$param['password'] = trim(strtolower($param['password']));
 
 		$sql = "SELECT * FROM " . self::$tblUsuarios . "
-					WHERE usuario = '{$param['usuario']}'
-					AND password = MD5('{$param['password']}')";
+					WHERE usuario='" . $param['usuario'] . "'
+					AND password='" . MD5($param['password']) . "'";
 
 		$result = BD::consultar($sql);
 
@@ -65,7 +65,7 @@ class Usuarios {
 		*/
 
 		$error = 0;
-		if (!$param["usuario"] || !$param["password"]) {
+		if (!$param['usuario'] || !$param['password']) {
 			$error = 1;
 		} else {
 			$usuario = self::encontrar_usuario($param);
@@ -85,6 +85,7 @@ class Usuarios {
 			}
 
 		}
+		self::redireccionIndex($error);
 
 		return $error;
 	}
@@ -92,7 +93,7 @@ class Usuarios {
 	public static function nuevo_usuario($param) {
 		$error = 0;
 
-		if (!$param["usuario"] || !$param["password"]) {
+		if (!$param['usuario'] || !$param['password']) {
 			$error = 1;
 		}
 		// Faltan datos.
@@ -116,7 +117,7 @@ class Usuarios {
 			}
 
 			// Insertar el registro.
-			$sql = "INSERT INTO " . self::$tblUsuarios . " SET nombre = '{$param['nombre']}', apellidos = '{$param['apellidos']}', password=MD5('{$param['password']}'), usuario = '{$param['usuario']}'";
+			$sql = "INSERT INTO " . self::$tblUsuarios . " SET nombre = '" . $param['nombre'] . "', apellidos = '" . $param['apellidos'] . "', password='" . MD5($param['password']) . "', usuario='" . $param['usuario'] . "'";
 			//		echo $sql;
 			BD::consultar($sql);
 		}
@@ -125,7 +126,7 @@ class Usuarios {
 	}
 
 	private static function existe($usuario) {
-		$sql = "SELECT COUNT(*) FROM " . self::$tblUsuarios . " WHERE usuario = '$usuario'";
+		$sql = "SELECT COUNT(*) FROM " . self::$tblUsuarios . " WHERE usuario='" . $usuario . "'";
 		$result = BD::consultar($sql);
 		if ($result) {
 			$row = mysqli_fetch_row($result);
@@ -137,6 +138,22 @@ class Usuarios {
 
 	}
 
+	private static function redireccionIndex($exito) {
+		BD::desconectar();
+		if ($exito == 0) {
+			header('Location: http://localhost/web/interfaz/index.php ');
+		}
+
+	}
+
 }
 
+include 'BD.class.php';
+BD::conectar();
+$param['usuario'] = "jaimeal";
+$param['nombre'] = "Jaime";
+$param['password'] = "asdfg";
+
+Usuarios::nuevo_usuario($param);
+BD::desconectar();
 ?>

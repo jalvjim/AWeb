@@ -1,20 +1,16 @@
 <?
-include('../php/BD.class.php');
-include('../php/Principal.class.php');
-include('../php/Usuarios.class.php');
 
-BD::conectar();
-$exito=0;
+session_start();
 
 ?>
 <html>
 	<head>
 	</head>
 	<body>
-		<form method="POST">
+		<form method="POST" action="procesarLogin.php">
 			<input type="name" name="usuario" placeholder="Usuario"></input>
 			<input type="password" name="pass" placeholder="Contraseña"></input>
-			<input type="submit" name="submit" placeholder="Login" value="Login"></input>
+			<button type="submit" name="submit" class="btn btn-primary" value="Login">Login</button>
 		</form>
 	</body>
 </html>
@@ -22,21 +18,6 @@ $exito=0;
 
 
 <?
-
-
-
-if($_POST['submit']=="Login"){
-	$param['usuario']=$_POST['usuario'];
-	$param['password']=$_POST['password'];
-	$exito=Usuarios::login_usuarios($param);
-
-}
-BD::desconectar();
-
-if($exito==0)
-	header('Location: http://localhost/web/interfaz/index.php');
-
-
 
 
 ?>
