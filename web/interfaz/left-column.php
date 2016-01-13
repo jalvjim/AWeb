@@ -12,11 +12,8 @@ include('../php/Principal.class.php');
           <div class="user-panel">
             <div class="pull-left image">
               <a href="http://localhost/web/interfaz/index.php">
-                <img src="http://localhost/web/images/arduino.png" class="img-circle" alt="User Image">
+                <img src="http://localhost/web/images/arduino.png" class="img-square" alt="User Image">
               </a>
-            </div>
-            <div class="pull-left info">
-              <p>sensorAdmin</p>
             </div>
           </div>
 
@@ -33,29 +30,26 @@ include('../php/Principal.class.php');
 
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">Navegación principal</li>
+            <li class="header" style="color:white; font-size:15pt;">sensorAdmin</li>
 
             <!-- Inicio -->
             <li>
               <a href="http://localhost/web/interfaz/index.php">
-                <i class="fa fa-dashboard"></i> <span>Inicio</span>
+                <i class="fa fa-dashboard"></i> <span style=" font-size:15pt;">Inicio</span>
               </a>
             </li>
 
             <!-- Dispositivos -->
             <li>
               <a href="http://localhost/web/interfaz/pages/dispositivos/dispositivos.php">
-                <i class="fa fa-laptop"></i> <span>Dispositivos</span>
+                <i class="fa fa-laptop"></i> <span style=" font-size:15pt;">Dispositivos</span>
 
                 <small class="label label-primary pull-right">
 				<?
 
 					BD::conectar();
 					$num_dispositivos=Principal::contarDispositivos();
-					if (empty($num_dispositivos))
-						echo 0;
-					else
-						echo $num_dispositivos['total_count'];
+					echo empty($num_dispositivos) ? 0 : $num_dispositivos;
 					BD::desconectar();
 				?>
 				</small>
@@ -65,7 +59,7 @@ include('../php/Principal.class.php');
             <!-- Medidas -->
             <li>
               <a href="http://localhost/web/interfaz/pages/medidas/medidas.php">
-                <i class="fa fa-envelope"></i> <span>Medidas</span>
+                <i class="fa fa-envelope"></i> <span style=" font-size:15pt;">Medidas</span>
                 <small class="label pull-right bg-green">
 					       <?
 

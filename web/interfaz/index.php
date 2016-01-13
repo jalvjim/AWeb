@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ensorAdmin</title>
+    <title>sensorAdmin</title>
 
     <?php require_once 'head.php';?>
 
@@ -20,8 +20,6 @@
       <?php require_once 'content.php';?>
 
       <?php require_once 'footer.php';?>
-
-      <?php require_once 'control-sidebar.php';?>
 
       <!-- Color de fondo -->
       <div class="control-sidebar-bg"></div>
