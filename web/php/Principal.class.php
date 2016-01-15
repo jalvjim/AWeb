@@ -39,6 +39,21 @@ class Principal {
 		return $nuevos;
 	}
 
+	public static function actualizarDispositivo($datos) {
+
+		$result = BD::consultar("UPDATE " . self::$tblDispositivos . " SET ubicacion='" . $datos['ubicacion'] . "', coordKML='" . $datos['coord'] . "', descripcion='" . $datos['descripcion'] . "' WHERE id='" . $datos['id'] . "'");
+
+		if ($result) {
+			$data = array();
+			while ($row = mysqli_fetch_assoc($result)) {
+				$data[] = $row;
+			}
+
+			mysqli_free_result($result);
+		}
+		return $nuevos;
+	}
+
 	public static function actualizarPassword($old, $new, $idUsuario) {
 		if ($new == $_POST['confirpass']) {
 			echo "Contraseña confirmada";
@@ -218,15 +233,15 @@ class Principal {
 			$param['descripcion'] = '';
 		}
 
-		if (empty($param['coordKML'])) {
-			$param['coordKML'] = '';
+		if (empty($param['coord'])) {
+			$param['coord'] = '';
 		}
 
 		if (empty($param['active'])) {
 			$param['active'] = '';
 		}
 
-		$sql = "INSERT INTO " . self::$tblDispositivos . " SET ubicacion = '" . $param['ubicacion'] . "', descripcion = '" . $param['descripcion'] . "', coordKML='" . $param['coordKML'] . "', active='" . $param['active'] . "'";
+		$sql = "INSERT INTO " . self::$tblDispositivos . " SET ubicacion = '" . $param['ubicacion'] . "', descripcion = '" . $param['descripcion'] . "', coordKML='" . $param['coord'] . "', active='" . $param['active'] . "'";
 
 		$result = BD::consultar($sql);
 

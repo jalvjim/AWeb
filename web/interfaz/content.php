@@ -27,7 +27,7 @@
                 <div class="icon">
                   <i class="fa fa-fw fa-pencil-square-o"></i>
                 </div>
-                <a href="http://localhost/web/interfaz/dispositivos/insertar.php" class="btn btn-block btn-warning btn-lg"> Insertar nuevo dispositivo</a>
+                <a href="http://localhost/web/interfaz/pages/dispositivos/insertar.php" class="btn btn-block btn-warning btn-lg"> Insertar nuevo dispositivo</a>
               </div>
             </div><!-- ./col -->
 
@@ -36,12 +36,12 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>Dispositivos</h3>
-                  <p>Mis dispositivos</p>
+                  <p>Modificar dispositivo</p>
                 </div>
                 <div class="icon">
                   <span class="glyphicon glyphicon-folder-open"></span>
                 </div>
-                <a href="http://localhost/web/interfaz/pages/dispositivos/dispositivos.php" class="small-box-footer">ver <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="http://localhost/web/interfaz/pages/dispositivos/modificar.php" class="small-box-footer">ver <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
           </div>
@@ -65,7 +65,7 @@
                 <div class="icon">
                   <i class="fa fa-fw fa-pencil-square-o"></i>
                 </div>
-                <a href="http://localhost/web/interfaz/interfaces/insertar.php" class="btn btn-block btn-warning btn-lg"> Insertar nueva interfaz</a>
+                <a href="http://localhost/web/interfaz/pages/interfaces/insertar.php" class="btn btn-block btn-warning btn-lg"> Insertar nueva interfaz</a>
               </div>
             </div><!-- ./col -->
 
